@@ -644,10 +644,13 @@
             this._on(fileUploadButtonBar.find('.delete'), {
                 click: function (e) {
                     e.preventDefault();
-                    filesList.find('.delete input:checked')
-                        .siblings('button').click();
-                    fileUploadButtonBar.find('.toggle')
-                        .prop('checked', false);
+                    
+                    if(confirm('Are you sure?')) {
+                        filesList.find('.delete input:checked')
+                            .siblings('button').click();
+                        fileUploadButtonBar.find('.toggle')
+                            .prop('checked', false);
+                    }
                 }
             });
             this._on(fileUploadButtonBar.find('.toggle'), {
